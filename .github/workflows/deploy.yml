@@ -22,6 +22,17 @@ jobs:
         uses: actions/checkout@v3
       - name: Install, build, and upload your site
         uses: withastro/action@v1
+      - name: Generate Tailwind CSS
+        # You may pin to the exact commit or the version.
+        # uses: ZoeyVid/tailwindcss-update@a461f05e8798a9b7d64c66da134abfc4412c026d
+        uses: ZoeyVid/tailwindcss-update@v1.4.0
+        with:
+          # path of input.css
+          input: src/input.css
+          # path of output.css
+          output: src/output.css
+          # addtional tailwind params
+
         # with:
           # path: . # The root location of your Astro project inside the repository. (optional)
           # node-version: 18 # The specific version of Node that should be used to build your site. Defaults to 18. (optional)
@@ -37,3 +48,4 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v1
+        
